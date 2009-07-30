@@ -21,4 +21,8 @@ function mypage(){
     div(p('It works!)) // I've only tested this on Safari and Firefox
 }
 
+Dependencies:
+    - jQuery: http://jquery.com/
+    - ecma5array: http://github.com/airportyh/ecma5array/tree/master
+
 Author: Toby Ho(tobyho.com)
