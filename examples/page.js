@@ -1,7 +1,5 @@
 function page(){
-  for (var tag in thinair){
-    eval("var " + tag + " = thinair." + tag)
-  }
+  eval(thinair.importCode)
   return div({style: {
       listStyle: 'none',
       padding: 0,

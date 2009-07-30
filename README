@@ -13,13 +13,8 @@ How to up the "pretty" by not writting "thinair." every time you create an eleme
 Method 1 - extend the window object with all the tag names:
 $.extend(window, thinair) // this works but will pollute your global namespace
 Method 2 - use eval to create the variables in local scope:
-function mypage(){
-    for (var tag in thinair){
-      eval("var " + tag + " = thinair." + tag)
-    }
-    // Now for this function scope you will get access to all the tags
-    div(p('It works!)) // I've only tested this on Safari and Firefox
-}
+eval(thinair.importCode) // this will create the tags as local variables 
+                         // in your current scope
 
 Dependencies:
     - jQuery: http://jquery.com/
