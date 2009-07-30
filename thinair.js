@@ -45,8 +45,8 @@
       return thinair.apply(this, [tag].concat(toArray(arguments)))
     }
   })
-  thinair.importCode = tags.map(function(tag){
-    return "var " + tag + "=thinair." + tag + ';'
-  }).join('')
+  thinair.importCode = "var " + tags.map(function(tag){
+    return tag + "=thinair." + tag
+  }).join(',')
   window.thinair = thinair
 })()
