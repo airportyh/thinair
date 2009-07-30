@@ -1,4 +1,5 @@
-function page(){
+function page(){  
+  $.extend(window, thinair)
   return div({style: {
       listStyle: 'none',
       padding: 0,
