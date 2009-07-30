@@ -11,13 +11,21 @@
   function dasherize(camel){
     return camel.replace( /([A-Z])/g, "-$1" ).toLowerCase()
   }
+  function flatten(arr){
+    return arr.reduce(function(curr, item){
+      return item.constructor === Array ?
+        curr.concat(item) :
+        curr.concat([item])
+    }, [])
+  }
   var toArray = $.makeArray
   function thinair(){
-    var tag = arguments[0]
-    var arg1 = arguments[1]
+    var args = toArray(arguments)
+    var tag = args[0]
+    var arg1 = args[1]
     var attrs = arg1 && arg1.constructor === Object && !(arg1[0] instanceof Element) ?
       arg1 : null
-    var contents = Array.prototype.slice.call(arguments, attrs ? 2 : 1)
+    var contents = flatten(args.slice(attrs ? 2 : 1))
     attrs = attrs || {}
     var style = attrs.style
     delete attrs.style
@@ -31,7 +39,7 @@
     return node
   }
 
-  'a abbracronym address applet area b base basefont bdo big blockquote body br button caption center cite code col colgroup dd del dir div dfn dl dt em fieldset font form frame frameset h1 h2 h3 h4 h5 head hr html i iframe img input ins isindex kbd label legend li link map menu meta noframes noscript object ol optgroup option p param pre q s samp script select small span strike strong style sub sup table tbody td textarea tfoot th thead title tr tt u ul var xmp'
+  'a abbracronym address applet area b base basefont bdo big blockquote body br button caption center cite code col colgroup dd del dir div dfn dl dt em fieldset font form frame frameset h1 h2 h3 h4 h5 head hr html i iframe img input ins isindex kbd label legend li link map menu meta noframes noscript object ol optgroup option p param pre q s samp script select small span strike strong style sub sup table tbody td textarea tfoot th thead title tr tt u ul'
   .split(' ')
   .forEach(function(tag){
     thinair[tag] = function(){

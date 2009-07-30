@@ -5,7 +5,7 @@ function markup(node){
   return parent.html()
 }
 
-describe('bdr')
+describe('thinair')
   .should('build input', function(){
     var node = input({name: 'age', type: 'text'})
     expect(markup(node))
@@ -47,4 +47,9 @@ describe('bdr')
   })
   .it('can skip the attrs with jquery handlers and won\'t mess up parent', function(){
     expect(markup(div(h1('blah').click(function(){})))).toEqual('<div><h1>blah</h1></div>')
+  })
+  .should('be able to pass elements in as array', function(){
+    expect(markup(ul(['bobby', 'timmy'].map(function(boy){
+      return li(boy)
+    })))).toBe('<ul><li>bobby</li><li>timmy</li></ul>')
   })

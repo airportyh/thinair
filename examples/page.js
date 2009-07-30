@@ -1,5 +1,7 @@
-function page(){  
-  $.extend(window, thinair)
+function page(){
+  for (var tag in thinair){
+    eval("var " + tag + " = thinair." + tag)
+  }
   return div({style: {
       listStyle: 'none',
       padding: 0,
@@ -40,7 +42,7 @@ function page(){
       ),
       div({id: 'checkbox-example'},
         h3('List of checkboxes Example'),
-        ul.apply(null, 
+        ul(
           ['att', 'level3', 'sprint']
           .map(function(carrier){
             return li(input({type: 'checkbox'}), label(carrier))
