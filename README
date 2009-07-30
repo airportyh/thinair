@@ -3,7 +3,7 @@ on-the-fly, it depends on jQuery.
 
 Example:
 // you can create an text input like so:
-var textInput = input({type: 'text', name: 'name', value: 'Bobby'})
+var textInput = thinair.input({type: 'text', name: 'name', value: 'Bobby'})
 // now you can insert this element into the page using jQuery
 $(document.body).append(textInput)
 
