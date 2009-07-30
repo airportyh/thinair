@@ -33,11 +33,11 @@ describe('thinair')
           div({id: 'lookup-results'}),
           div({'class': 'buttons'},
             a({id: 'login-or-out', 'class': 'action-button', 
-              href: '/w/account/login?return_to=%2Fme'}, 'Login')
+              href: '/w/account/login?return_to=me'}, 'Login')
           )
         )
       )
-    expect(markup(node)).toEqual('<div id="wrapper"><div id="action-bar"><input id="lookup-box" type="text" class="text"><div id="lookup-results"></div><div class="buttons"><a id="login-or-out" class="action-button" href="/w/account/login?return_to=%2Fme">Login</a></div></div></div>')
+    expect(markup(node)).toEqual('<div id="wrapper"><div id="action-bar"><input id="lookup-box" type="text" class="text"><div id="lookup-results"></div><div class="buttons"><a id="login-or-out" class="action-button" href="/w/account/login?return_to=me">Login</a></div></div></div>')
   })
   .it('can let you skip the attrs if you want', function(){
     expect(markup(div())).toEqual('<div></div>')
