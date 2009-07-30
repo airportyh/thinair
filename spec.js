@@ -1,4 +1,4 @@
-eval(thinair.importCode)
+eval(thinair.imports)
 function markup(node){
   var parent = $('<div></div>')
   parent.append(node)

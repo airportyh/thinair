@@ -1,5 +1,5 @@
 function page(){
-  eval(thinair.importCode)
+  eval(thinair.imports)
   return div({style: {
       listStyle: 'none',
       padding: 0,
