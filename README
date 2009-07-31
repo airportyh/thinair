@@ -13,9 +13,14 @@ How to up the "pretty" by not writting "thinair." every time you create an eleme
 Method 1 - extend the window object with all the tag names:
 $.extend(window, thinair) // this works but will pollute your global namespace
 Method 2 - use eval to create the variables in local scope:
-eval(thinair.importCode) // this will create the tags as local variables 
-                         // in your current scope
-
+function(){
+  eval(thinair.imports) // this will create the tags methods as local variables 
+  p('it works!')        // in your current scope
+}
+Method 3 - use with:
+with(thinair){
+  p('it works!')
+}
 Dependencies:
     - jQuery: http://jquery.com/
     - ecma5array: http://github.com/airportyh/ecma5array/tree/master
